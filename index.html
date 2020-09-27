@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/weatherapp.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/15ccc24f25.js"></script>
+  </head>
+
+  <body>
+    <div class="bodyContainer">
+      <header>
+        <span id="buttonInsert">
+          <span class="holiday">WeatherApp</span> For Your
+          <span class="holiday">Holiday</span> Destination
+        </span>
+
+        <button id="currentLocation">Current location!</button>
+
+        <div class="row temperature">
+          <div class="col">
+            <strong>Singapore</strong><br />
+            <span class="temperatureSingapore">30</span
+            ><a href="#" class="celsius">°C</a>|<a href="#" class="fahrenheit"
+              >°F</a
+            >
+            <i class="fas fa-cloud-sun"></i><br />
+            Chance of rain 70%<br />
+            <span class="timeSingapore">""</span>
+            <br />
+          </div>
+        </div>
+
+        <form>
+          <input
+            id="inputDestination"
+            type="text"
+            placeholder="What's your next trip?"
+            autocomplete="off"
+          />
+          <input type="submit" value="Go!" />
+        </form>
+      </header>
+
+      <br />
+      <div class="container2">
+        <div class="row">
+          <div class="col-6">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <div class="card-resultsHistory" style="width: 18rem">
+                    <div class="card-body">
+                      <h5 class="card-title card-title-card1">
+                        New York, United States
+                      </h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Thu 27 August 2020 <br />
+                        2.00AM
+                      </h6>
+                      <p class="card-text">
+                        Current weather
+                        <span id="temperatureBlock1">20</span>°C.
+                        <i class="fas fa-sun"></i>
+                        <br />
+                        Chance of rain 30%
+                      </p>
+                      <button
+                        class="btn btn-forecast"
+                        onclick="document.querySelector('.flip-card').classList.add('flip')"
+                      >
+                        5 Days Forecast
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-back">
+                  <div class="card card-forecast5days">
+                    <div class="card-body">
+                      <i
+                        class="far fa-window-close"
+                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
+                      >
+                      </i>
+                      <h5 class="card-title card-title-card1">
+                        New York, United States
+                      </h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        5 Days Forecast
+                      </h6>
+
+                      <div class="container">
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">Fri</div>
+                          <div class="col p-0">Sat</div>
+                          <div class="col p-0">Sun</div>
+                          <div class="col p-0">Mon</div>
+                          <div class="col p-0">Tue</div>
+                        </div>
+                        <div class="row mb-3 text-center">
+                          <div class="col p-0">28/8</div>
+                          <div class="col p-0">29/8</div>
+                          <div class="col p-0">30/8</div>
+                          <div class="col p-0">31/8</div>
+                          <div class="col p-0">1/9</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">25°C</div>
+                          <div class="col p-0">20°C</div>
+                          <div class="col p-0">22°C</div>
+                          <div class="col p-0">24°C</div>
+                          <div class="col p-0">25°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">19°C</div>
+                          <div class="col p-0">14°C</div>
+                          <div class="col p-0">15°C</div>
+                          <div class="col p-0">16°C</div>
+                          <div class="col p-0">16°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col p-0">30%</div>
+                          <div class="col p-0">50%</div>
+                          <div class="col p-0">60%</div>
+                          <div class="col p-0">40%</div>
+                          <div class="col p-0">50%</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <div class="card-resultsHistory" style="width: 18rem">
+                    <div class="card-body">
+                      <h5 class="card-title">Tokyo, Japan</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Thu 27 August 2020 <br />
+                        4.00PM
+                      </h6>
+                      <p class="card-text">
+                        Current weather 20°C.
+                        <i class="fas fa-sun"></i>
+                        <br />
+                        Chance of rain 30%
+                      </p>
+                      <button
+                        class="btn btn-forecast"
+                        onclick="document.querySelector('.flip-card').classList.add('flip')"
+                      >
+                        5 Days Forecast
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-back">
+                  <div class="card card-forecast5days">
+                    <div class="card-body">
+                      <i
+                        class="far fa-window-close"
+                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
+                      >
+                      </i>
+                      <h5 class="card-title">Tokyo, Japan</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        5 Days Forecast
+                      </h6>
+
+                      <div class="container">
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">Fri</div>
+                          <div class="col p-0">Sat</div>
+                          <div class="col p-0">Sun</div>
+                          <div class="col p-0">Mon</div>
+                          <div class="col p-0">Tue</div>
+                        </div>
+                        <div class="row mb-3 text-center">
+                          <div class="col p-0">28/8</div>
+                          <div class="col p-0">29/8</div>
+                          <div class="col p-0">30/8</div>
+                          <div class="col p-0">31/8</div>
+                          <div class="col p-0">1/9</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">25°C</div>
+                          <div class="col p-0">20°C</div>
+                          <div class="col p-0">22°C</div>
+                          <div class="col p-0">24°C</div>
+                          <div class="col p-0">25°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">19°C</div>
+                          <div class="col p-0">14°C</div>
+                          <div class="col p-0">15°C</div>
+                          <div class="col p-0">16°C</div>
+                          <div class="col p-0">16°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col p-0">30%</div>
+                          <div class="col p-0">50%</div>
+                          <div class="col p-0">60%</div>
+                          <div class="col p-0">40%</div>
+                          <div class="col p-0">50%</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-6">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <div class="card-resultsHistory" style="width: 18rem">
+                    <div class="card-body">
+                      <h5 class="card-title">Melbourne, Australia</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Thu 27 August 2020 <br />
+                        5.00PM
+                      </h6>
+                      <p class="card-text">
+                        Current weather 20°C.
+                        <i class="fas fa-sun"></i>
+                        <br />
+                        Chance of rain 30%
+                      </p>
+                      <button
+                        class="btn btn-forecast"
+                        onclick="document.querySelector('.flip-card').classList.add('flip')"
+                      >
+                        5 Days Forecast
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-back">
+                  <div class="card card-forecast5days">
+                    <div class="card-body">
+                      <i
+                        class="far fa-window-close"
+                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
+                      >
+                      </i>
+                      <h5 class="card-title">Melbourne, Australia</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        5 Days Forecast
+                      </h6>
+
+                      <div class="container">
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">Fri</div>
+                          <div class="col p-0">Sat</div>
+                          <div class="col p-0">Sun</div>
+                          <div class="col p-0">Mon</div>
+                          <div class="col p-0">Tue</div>
+                        </div>
+                        <div class="row mb-3 text-center">
+                          <div class="col p-0">28/8</div>
+                          <div class="col p-0">29/8</div>
+                          <div class="col p-0">30/8</div>
+                          <div class="col p-0">31/8</div>
+                          <div class="col p-0">1/9</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">25°C</div>
+                          <div class="col p-0">20°C</div>
+                          <div class="col p-0">22°C</div>
+                          <div class="col p-0">24°C</div>
+                          <div class="col p-0">25°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">19°C</div>
+                          <div class="col p-0">14°C</div>
+                          <div class="col p-0">15°C</div>
+                          <div class="col p-0">16°C</div>
+                          <div class="col p-0">16°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col p-0">30%</div>
+                          <div class="col p-0">50%</div>
+                          <div class="col p-0">60%</div>
+                          <div class="col p-0">40%</div>
+                          <div class="col p-0">50%</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <div class="card-resultsHistory" style="width: 18rem">
+                    <div class="card-body">
+                      <h5 class="card-title">Cape Town, South Africa</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Thu 27 August 2020 <br />
+                        9.00AM
+                      </h6>
+                      <p class="card-text">
+                        Current weather 20°C.
+                        <i class="fas fa-sun"></i>
+                        <br />
+                        Chance of rain 30%
+                      </p>
+                      <button
+                        class="btn btn-forecast"
+                        onclick="document.querySelector('.flip-card').classList.add('flip')"
+                      >
+                        5 Days Forecast
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-back">
+                  <div class="card card-forecast5days">
+                    <div class="card-body">
+                      <i
+                        class="far fa-window-close"
+                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
+                      >
+                      </i>
+                      <h5 class="card-title">Cape Town, South Africa</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        5 Days Forecast
+                      </h6>
+
+                      <div class="container">
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">Fri</div>
+                          <div class="col p-0">Sat</div>
+                          <div class="col p-0">Sun</div>
+                          <div class="col p-0">Mon</div>
+                          <div class="col p-0">Tue</div>
+                        </div>
+                        <div class="row mb-3 text-center">
+                          <div class="col p-0">28/8</div>
+                          <div class="col p-0">29/8</div>
+                          <div class="col p-0">30/8</div>
+                          <div class="col p-0">31/8</div>
+                          <div class="col p-0">1/9</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">25°C</div>
+                          <div class="col p-0">20°C</div>
+                          <div class="col p-0">22°C</div>
+                          <div class="col p-0">24°C</div>
+                          <div class="col p-0">25°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0">19°C</div>
+                          <div class="col p-0">14°C</div>
+                          <div class="col p-0">15°C</div>
+                          <div class="col p-0">16°C</div>
+                          <div class="col p-0">16°C</div>
+                        </div>
+                        <div class="row mb-1 text-center">
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col p-0">
+                            <i class="fas fa-cloud"></i>
+                          </div>
+                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="row text-center">
+                          <div class="col p-0">30%</div>
+                          <div class="col p-0">50%</div>
+                          <div class="col p-0">60%</div>
+                          <div class="col p-0">40%</div>
+                          <div class="col p-0">50%</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <footer>
+        Last updated: September 2020. Created by Vera Goossen :) <br />
+        The rights on the images on this page are reserved by the original
+        owner.
+      </footer>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
