@@ -35,31 +35,44 @@
           <span class="holiday">Holiday</span> Destination
         </span>
 
-        <button id="currentLocation">Current location!</button>
+        <!--<button id="currentLocation">Current location!</button>-->
 
-        <div class="row temperature">
+        <div class="row form">
+          <br />
+          <br />
           <div class="col">
-            <strong>Singapore</strong><br />
-            <span class="temperatureSingapore">30</span
-            ><a href="#" class="celsius">°C</a>|<a href="#" class="fahrenheit"
-              >°F</a
-            >
-            <i class="fas fa-cloud-sun"></i><br />
-            Chance of rain 70%<br />
-            <span class="timeSingapore">""</span>
-            <br />
+            <form>
+              <input
+                id="inputDestination"
+                type="text"
+                placeholder="What's your next trip?"
+                autocomplete="off"
+              />
+              <input type="submit" value="Go!" />
+            </form>
           </div>
         </div>
 
-        <form>
-          <input
-            id="inputDestination"
-            type="text"
-            placeholder="What's your next trip?"
-            autocomplete="off"
-          />
-          <input type="submit" value="Go!" />
-        </form>
+        <div class="row temperature">
+          <div class="col">
+            <strong>
+              Singapore
+              <span class="temperatureSingapore">""</span
+              ><a href="#" class="celsius">°C</a>|<a href="#" class="fahrenheit"
+                >°F</a
+              ></strong
+            >
+            <img id="iconSingapore" src="" alt="" /><br />
+
+            <span id="descriptionSingapore"></span><br />
+            Wind:
+            <span id="windSingapore"></span>km/h <br />
+            Chance of Rain: <span id="humiditySingapore"></span>%<br />
+            Last updated:
+            <span class="timeSingapore"></span>
+            <br />
+          </div>
+        </div>
       </header>
 
       <br />
@@ -71,20 +84,32 @@
                 <div class="flip-card-front">
                   <div class="card-resultsHistory" style="width: 18rem">
                     <div class="card-body">
-                      <h5 class="card-title card-title-card1">
-                        New York, United States
+                      <h5 class="card-title">
+                        <span class="card-title-card1">New York</span>,
+                        <span id="countryCard1">US</span>
                       </h5>
+
                       <h6 class="card-subtitle mb-2 text-muted">
-                        Thu 27 August 2020 <br />
-                        2.00AM
+                        <span id="timeCard1"
+                          > Last updated: Thursday Aug 27, 2020 - 2.00AM
+                        </span>
                       </h6>
                       <p class="card-text">
-                        Current weather
-                        <span id="temperatureBlock1">20</span>°C.
-                        <i class="fas fa-sun"></i>
-                        <br />
-                        Chance of rain 30%
-                      </p>
+                          <div class="row">
+
+                          <div class="col-3">
+                        <img id="iconCard1" src="" alt="" /><br />
+                        </div>
+                        <div class="col-9 my-auto">
+                        <span id="temperatureCard1"></span>°C
+
+                        <span id="descriptionCard1"></span> <br />
+                        Chance of Rain                        
+                        <span id="humidityCard1"></span>%<br />
+                        Wind <span id="windCard1"></span>km/h
+                        </div>
+                    </div>  
+                    </p>
                       <button
                         class="btn btn-forecast"
                         onclick="document.querySelector('.flip-card').classList.add('flip')"
