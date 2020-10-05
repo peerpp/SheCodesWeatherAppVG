@@ -151,7 +151,7 @@ function showTemperature(response) {
   );
   iconElementCard1.setAttribute("alt", response.data.weather[0].description);
 
-  countryElementCard1.innerHTML = country;
+  countryElementCard1.innerHTML = getCountryName(country);
   windElementCard1.innerHTML = wind;
 }
 

@@ -17,6 +17,11 @@
     />
 
     <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
       href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"
       rel="stylesheet"
     />
@@ -34,43 +39,51 @@
           <span class="holiday">WeatherApp</span> For Your
           <span class="holiday">Holiday</span> Destination
         </span>
+        <br />
+        <br />
+        <br />
 
-        <!--<button id="currentLocation">Current location!</button>-->
+        <div class="row temperature">
+          <div class="col-3">Singapore</div>
 
-        <div class="row form">
-          <br />
-          <br />
-          <div class="col">
+          <div class="col-4">
+            Wind:
+            <span id="windSingapore"></span>km/h
+          </div>
+        </div>
+
+        <div class="row temperature">
+          <div class="col-3">
+            <span class="temperatureSingapore"></span
+            ><a href="#" class="celsius">°C</a>|<a href="#" class="fahrenheit"
+              >°F</a
+            >
+            <img id="iconSingapore" src="" alt="" />
+          </div>
+          <div class="col-4">
+            Chance of Rain: <span id="humiditySingapore"></span>%
+          </div>
+          <div class="col-5">
             <form>
-              <input
-                id="inputDestination"
-                type="text"
-                placeholder="What's your next trip?"
-                autocomplete="off"
-              />
-              <input type="submit" value="Go!" />
+              <span class="formDestination">
+                <input
+                  id="inputDestination"
+                  type="search"
+                  placeholder="What's your next trip?"
+                  autocomplete="off"
+                />
+                <input type="submit" value="Go!" />
+              </span>
             </form>
           </div>
         </div>
 
         <div class="row temperature">
-          <div class="col">
-            <strong>
-              Singapore
-              <span class="temperatureSingapore">""</span
-              ><a href="#" class="celsius">°C</a>|<a href="#" class="fahrenheit"
-                >°F</a
-              ></strong
-            >
-            <img id="iconSingapore" src="" alt="" /><br />
-
-            <span id="descriptionSingapore"></span><br />
-            Wind:
-            <span id="windSingapore"></span>km/h <br />
-            Chance of Rain: <span id="humiditySingapore"></span>%<br />
-            Last updated:
+          <div class="col-3">
+            <span id="descriptionSingapore"></span>
+          </div>
+          <div class="col-4">
             <span class="timeSingapore"></span>
-            <br />
           </div>
         </div>
       </header>
@@ -88,28 +101,33 @@
                         <span class="card-title-card1">New York</span>,
                         <span id="countryCard1">US</span>
                       </h5>
-
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        <span id="timeCard1"
-                          > Last updated: Thursday Aug 27, 2020 - 2.00AM
+                      <p>
+                        <span id="timeCard1">
+                          Thursday Aug 27, 2020 - 2.00AM
                         </span>
-                      </h6>
-                      <p class="card-text">
-                          <div class="row">
+                      </p>
 
+                      <h6 class="card-subtitle-card1 mb-2 text-muted">
+                        <div class="row">
                           <div class="col-3">
-                        <img id="iconCard1" src="" alt="" /><br />
-                        </div>
-                        <div class="col-9 my-auto">
-                        <span id="temperatureCard1"></span>°C
+                            <img id="iconCard1" src="" alt="" /><br />
+                          </div>
+                          <div class="col-9 my-auto">
+                            <span class="temperatureCard1">
+                              <span id="temperatureCard1"></span>°C -
 
-                        <span id="descriptionCard1"></span> <br />
-                        Chance of Rain                        
-                        <span id="humidityCard1"></span>%<br />
-                        Wind <span id="windCard1"></span>km/h
+                              <span id="descriptionCard1"></span
+                            ></span>
+                            <br />
+                            <span class="layoutCard1">
+                              Chance of Rain:
+                              <span id="humidityCard1"></span>%<br />
+                              Wind: <span id="windCard1"></span>km/h
+                            </span>
+                          </div>
                         </div>
-                    </div>  
-                    </p>
+                      </h6>
+
                       <button
                         class="btn btn-forecast"
                         onclick="document.querySelector('.flip-card').classList.add('flip')"
@@ -482,11 +500,11 @@
       <br />
 
       <footer>
-        Last updated: September 2020. Created by Vera Goossen :) <br />
+        Last updated: October 2020. Created by Vera Goossen :) <br />
         The rights on the images on this page are reserved by the original
         owner.
-        <a href="https://github.com/peerpp/SheCodesWeatherAppVG"
-          >🎁Open Source🎁</a
+        <a href="https://github.com/peerpp/SheCodesWeatherAppVG" target="_blank"
+          >🎁Open-source Code🎁</a
         >.
       </footer>
     </div>
@@ -502,6 +520,7 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="countrynames.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
