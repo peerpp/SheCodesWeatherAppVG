@@ -47,7 +47,7 @@ function formatUTCDate(date) {
   } else if (hours === 0) {
     hours = 12;
   }
-  return `${day} ${month} ${numDay}, ${year} -
+  return `Last updated: ${day} ${month} ${numDay}, ${year} <i class="far fa-clock"></i>
   ${hours}:${minutes}${ampm}`;
 }
 
@@ -69,7 +69,7 @@ function formatDate(date) {
   } else if (hours === 0) {
     hours = 12;
   }
-  return `${day} ${month} ${numDay}, ${year} -
+  return `${day} ${month} ${numDay}, ${year} <i class="far fa-clock"></i>
   ${hours}:${minutes}${ampm}`;
 }
 
@@ -179,7 +179,7 @@ function showTemperature(response) {
   let countryElementCard1 = document.querySelector("#countryCard1");
   let iconElementCard1 = document.querySelector("#iconCard1");
   let windElementCard1 = document.querySelector("#windCard1");
-  let timeCard1 = document.querySelector("#timeCard1");
+  let timeCard1 = document.querySelector(".timeCard1");
 
   temperatureElement.innerHTML = temperature;
   descriptionElementCard1.innerHTML = description;

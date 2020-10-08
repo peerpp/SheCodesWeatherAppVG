@@ -35,53 +35,40 @@
   <body>
     <div class="bodyContainer">
       <header>
-        <span class="holiday">WeatherApp</span> For Your
-        <span class="holiday">Holiday</span> Destination
-
-        <br />
-        <br />
-        <br />
+        <h3>
+          <span class="holiday">WeatherApp</span> For Your
+          <span class="holiday">Holiday</span> Destination
+        </h3>
 
         <div class="row temperature">
-          <div class="col-3" id="userLocation">Singapore</div>
-
-          <div class="col-4">
-            Wind:
-            <span id="windSingapore"></span>km/h
-          </div>
-        </div>
-
-        <div class="row temperature">
-          <div class="col-3">
+          <div class="col-7 locationCurrent">
+            <div id="userLocation">Singapore</div>
             <span class="temperatureSingapore"></span>
             <a href="#" class="celsius disabled">°C</a> |
             <a href="#" class="fahrenheit">°F</a>
             <img id="iconSingapore" src="" alt="" />
+            <span id="descriptionSingapore"></span>
           </div>
-          <div class="col-4">
-            Chance of Rain: <span id="humiditySingapore"></span>%
-          </div>
-          <div class="col-5">
-            <form>
-              <span class="formDestination">
-                <input
-                  id="inputDestination"
-                  type="search"
-                  placeholder="What's your next trip?"
-                  autocomplete="off"
-                />
-                <input type="submit" value="Go!" />
-              </span>
-            </form>
+          <div class="col-5 leftLocation">
+            <div class="timeSingapore"></div>
+            Wind:
+            <span id="windSingapore"></span>km/h &mdash; Humidity:
+            <span id="humiditySingapore"></span>%
           </div>
         </div>
 
         <div class="row temperature">
-          <div class="col-3">
-            <span id="descriptionSingapore"></span>
-          </div>
-          <div class="col-4">
-            <span class="timeSingapore"></span>
+          <div class="col-12">
+            <br />
+            <form class="formDestination">
+              <input
+                id="inputDestination"
+                type="search"
+                placeholder="What's your next trip?"
+                autocomplete="off"
+              />
+              <input type="submit" value="Go!" />
+            </form>
           </div>
         </div>
       </header>
@@ -99,24 +86,21 @@
                         <span class="card-title-card1">New York</span>,
                         <span id="countryCard1">United States</span>
                       </h5>
-                      <p>
-                        <span id="timeCard1"> Thu Aug 27, 2020 - 2.00AM </span>
-                      </p>
 
-                      <h6 class="card-subtitle-card1 mb-2 text-muted">
+                      <h6 class="card-subtitle-card1">
                         <div class="row">
                           <div class="col-3">
                             <img id="iconCard1" src="" alt="" /><br />
                           </div>
                           <div class="col-9 my-auto">
                             <span class="temperatureCard1">
-                              <span id="temperatureCard1"></span>°C -
+                              <span id="temperatureCard1"></span>°C &mdash;
 
                               <span id="descriptionCard1"></span
                             ></span>
                             <br />
                             <span class="layoutCard1">
-                              Chance of Rain:
+                              Humidity:
                               <span id="humidityCard1"></span>%<br />
                               Wind: <span id="windCard1"></span>km/h
                             </span>
@@ -130,12 +114,13 @@
                       >
                         5 Days Forecast
                       </button>
+                      <div class="timeCard1">&nbsp;</div>
                     </div>
                   </div>
                 </div>
 
                 <div class="flip-card-back">
-                  <div class="card card-forecast5days">
+                  <div class="card card-forecasthours">
                     <div class="card-body">
                       <i
                         class="far fa-window-close"
@@ -145,25 +130,16 @@
                       <h5 class="card-title card-title-card1">
                         New York, United States
                       </h5>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        5 Days Forecast
-                      </h6>
 
                       <div class="container">
                         <div class="row mb-1 text-center">
-                          <div class="col p-0">Fri</div>
-                          <div class="col p-0">Sat</div>
-                          <div class="col p-0">Sun</div>
-                          <div class="col p-0">Mon</div>
-                          <div class="col p-0">Tue</div>
+                          <div class="col p-0">9AM</div>
+                          <div class="col p-0">12PM</div>
+                          <div class="col p-0">3PM</div>
+                          <div class="col p-0">6PM</div>
+                          <div class="col p-0">9PM</div>
                         </div>
-                        <div class="row mb-3 text-center">
-                          <div class="col p-0">28/8</div>
-                          <div class="col p-0">29/8</div>
-                          <div class="col p-0">30/8</div>
-                          <div class="col p-0">31/8</div>
-                          <div class="col p-0">1/9</div>
-                        </div>
+                        <br />
                         <div class="row mb-1 text-center">
                           <div class="col p-0">25°C</div>
                           <div class="col p-0">20°C</div>

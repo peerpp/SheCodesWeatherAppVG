@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(-225deg, #dcb7b1 0%, #00334e 100%);
+  background-image: linear-gradient(-225deg, #e2ccc8 0%, #00334e 100%);
   width: 600px;
   margin: 0 auto;
 }
@@ -9,23 +9,21 @@ header {
   background-repeat: no-repeat;
   background-size: 600px;
   height: 265px;
-  font-weight: bold;
   border: double thick #00334e;
-  color: #f6f5f5;
   border-radius: 6px;
+  color: #f6f5f5;
   padding: 30px;
+}
+
+h3 {
+  font-weight: 600;
+  margin-bottom: 70px;
+  text-align: center;
   font-family: "Rajdhani", sans-serif;
-  font-size: 30px;
+  font-size: 31px;
 }
 
 .holiday {
-  color: #00334e;
-}
-
-#currentLocation {
-  font-size: 14px;
-  border-radius: 6px;
-  border-color: #00334e;
   color: #00334e;
 }
 
@@ -34,7 +32,24 @@ header {
   font-size: 14px;
   text-align: left;
   font-weight: 600;
-  line-height: 2.4;
+  line-height: 1.5;
+}
+
+.locationCurrent {
+  padding: 0px;
+  font-size: 16px;
+}
+
+.leftLocation {
+  text-align: right;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0px;
+}
+
+.locationCurrent {
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 a.disabled {
@@ -44,16 +59,21 @@ a.disabled {
   color: #f6f5f5;
 }
 
+.formDestination {
+  text-align: center;
+}
+
 input {
-  opacity: 0.7;
-  font-size: 15px;
+  opacity: 0.9;
+  font-size: 16px;
   font-family: "Rajdhani", sans-serif;
   line-height: 1.5;
   color: #00334e;
-  font-weight: 700;
-  text-align: center;
+  font-weight: 600;
   border-radius: 6px;
   padding: 1px;
+  text-align: center;
+  background-color: #f6f5f5;
 }
 
 input::placeholder {
@@ -75,18 +95,24 @@ input::placeholder {
   height: 56px;
 }
 
-#timeCard1 {
+.timeCard1 {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 0.5;
-  color: #8c8d95;
+  font-size: 12px;
+  color: #00334e;
+  margin-top: 1rem;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: capitalize;
+  height: 42px;
+  color: #c75f2c;
+  line-height: 1;
 }
 
 .card-subtitle-card1 {
   font-weight: bold;
-}
-
-.temperatureCard1 {
   color: #00334e;
 }
 
@@ -97,11 +123,10 @@ input::placeholder {
 .card-resultsHistory {
   font-family: "Rajdhani", sans-serif;
   font-size: 15px;
-  font-weight: 900;
   border-radius: 6px;
   background-image: linear-gradient(-225deg, #dec4c8 0%, #ffe6fa 100%);
   line-height: 1.2;
-  color: #00334e;
+  text-align: left;
 }
 
 .flip-card {
@@ -131,7 +156,7 @@ input::placeholder {
   transform: rotateY(-180deg);
 }
 
-.card-forecast5days {
+.card-forecasthours {
   border: solid #dec4c8;
   background-color: #e5dae3;
   color: #00334e;
@@ -139,14 +164,6 @@ input::placeholder {
   font-size: 15px;
   line-height: 0.6;
   height: 100%;
-}
-
-.card-title {
-  font-weight: bold;
-  font-size: 25px;
-  line-height: 0.9;
-  text-transform: capitalize;
-  height: 44px;
 }
 
 .btn-forecast {
