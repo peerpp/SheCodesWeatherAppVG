@@ -183,14 +183,18 @@ function showTemperature(response) {
     .value.trim()
     .toLowerCase();
 
-  let temperatureElement = document.querySelector("#temperatureCard1");
-  let descriptionElementCard1 = document.querySelector("#descriptionCard1");
-  let humidityElementCard1 = document.querySelector("#humidityCard1");
-  let iconElementCard1 = document.querySelector("#iconCard1");
-  let windElementCard1 = document.querySelector("#windCard1");
-  let timeCards1 = document.querySelectorAll(".timeCard1");
-  let feelsLikeCard1 = document.querySelector("#feelsLikeCard1");
-  let formCities = document.querySelectorAll(".cityCountryCard1");
+  let temperatureElement = document.querySelector(
+    "#flipCard1 .temperatureFront"
+  );
+  let descriptionElementCard1 = document.querySelector(
+    "#flipCard1 .descriptionCard"
+  );
+  let humidityElementCard1 = document.querySelector("#flipCard1 .humidityCard");
+  let iconElementCard1 = document.querySelector("#flipCard1 .iconCardFront");
+  let windElementCard1 = document.querySelector("#flipCard1 .windCard");
+  let timeCards1 = document.querySelectorAll("#flipCard1 .timeCard");
+  let feelsLikeCard1 = document.querySelector("#flipCard1 .feelsLikeCard");
+  let formCities = document.querySelectorAll("#flipCard1 .cityCountryCard");
 
   formCities.forEach(
     (formCity) =>
@@ -231,18 +235,18 @@ function forecast5days(response) {
   let description2 = response.data.daily[2].weather[0].description;
   let description3 = response.data.daily[3].weather[0].description;
 
-  let day1Element = document.querySelector("#day1");
-  let day2Element = document.querySelector("#day2");
-  let day3Element = document.querySelector("#day3");
-  let temp1Element = document.querySelector("#temp1");
-  let temp2Element = document.querySelector("#temp2");
-  let temp3Element = document.querySelector("#temp3");
-  let feels1Element = document.querySelector("#feels1");
-  let feels2Element = document.querySelector("#feels2");
-  let feels3Element = document.querySelector("#feels3");
-  let icon1Element = document.querySelector("#icon1");
-  let icon2Element = document.querySelector("#icon2");
-  let icon3Element = document.querySelector("#icon3");
+  let day1Element = document.querySelector("#flipCard1 .day1");
+  let day2Element = document.querySelector("#flipCard1 .day2");
+  let day3Element = document.querySelector("#flipCard1 .day3");
+  let temp1Element = document.querySelector("#flipCard1 .temp1");
+  let temp2Element = document.querySelector("#flipCard1 .temp2");
+  let temp3Element = document.querySelector("#flipCard1 .temp3");
+  let feels1Element = document.querySelector("#flipCard1 .feels1");
+  let feels2Element = document.querySelector("#flipCard1 .feels2");
+  let feels3Element = document.querySelector("#flipCard1 .feels3");
+  let icon1Element = document.querySelector("#flipCard1 .icon1");
+  let icon2Element = document.querySelector("#flipCard1 .icon2");
+  let icon3Element = document.querySelector("#flipCard1 .icon3");
 
   day1Element.innerHTML = day1;
   day2Element.innerHTML = day2;
@@ -314,19 +318,19 @@ function clickCloseCard4(event) {
   document.querySelector("#flipCard4").classList.remove("flip");
 }
 
-let buttonCard1 = document.querySelector("#buttonCard1");
+let buttonCard1 = document.querySelector("#flipCard1 .buttonCard");
 buttonCard1.addEventListener("click", clickButtonCard1);
-let closeCard1 = document.querySelector("#closeCard1");
+let closeCard1 = document.querySelector("#flipCard1 .closeCard");
 closeCard1.addEventListener("click", clickCloseCard1);
-let buttonCard2 = document.querySelector("#buttonCard2");
+let buttonCard2 = document.querySelector("#flipCard2 .buttonCard");
 buttonCard2.addEventListener("click", clickButtonCard2);
-let closeCard2 = document.querySelector("#closeCard2");
+let closeCard2 = document.querySelector("#flipCard2 .closeCard");
 closeCard2.addEventListener("click", clickCloseCard2);
-let buttonCard3 = document.querySelector("#buttonCard3");
+let buttonCard3 = document.querySelector("#flipCard3 .buttonCard");
 buttonCard3.addEventListener("click", clickButtonCard3);
-let closeCard3 = document.querySelector("#closeCard3");
+let closeCard3 = document.querySelector("#flipCard3 .closeCard");
 closeCard3.addEventListener("click", clickCloseCard3);
-let buttonCard4 = document.querySelector("#buttonCard4");
+let buttonCard4 = document.querySelector("#flipCard4 .buttonCard");
 buttonCard4.addEventListener("click", clickButtonCard4);
-let closeCard4 = document.querySelector("#closeCard4");
+let closeCard4 = document.querySelector("#flipCard4 .closeCard");
 closeCard4.addEventListener("click", clickCloseCard4);

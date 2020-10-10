@@ -4,6 +4,8 @@ body {
   margin: 0 auto;
 }
 
+/* Header*/
+
 header {
   background-image: url("../image/singapore.jpg");
   background-repeat: no-repeat;
@@ -14,6 +16,8 @@ header {
   color: #f6f5f5;
   padding: 30px;
 }
+
+/*Title Header*/
 
 h3 {
   font-weight: 600;
@@ -41,18 +45,19 @@ h3 {
 .locationCurrent {
   padding: 0px;
   font-size: 16px;
+  line-height: 1.5;
 }
 
-.leftLocation {
+.rightLocation {
   text-align: right;
   font-size: 16px;
   line-height: 1.5;
   padding: 0px;
 }
 
-.locationCurrent {
-  font-size: 17px;
-  line-height: 1.5;
+#iconSingapore {
+  width: 30px;
+  height: 30px;
 }
 
 a.disabled {
@@ -65,6 +70,8 @@ a.disabled {
 a.disabled1 {
   color: #c75f2c;
 }
+
+/*Form*/
 
 .formDestination {
   text-align: center;
@@ -87,22 +94,18 @@ input::placeholder {
   color: #00334e;
 }
 
-#descriptionSingapore,
-#descriptionCard1 {
+.descriptionWeather {
   text-transform: capitalize;
 }
 
-#iconSingapore {
-  width: 30px;
-  height: 30px;
-}
+/*Card*/
 
-#iconCard1 {
+.iconCardFront {
   width: 56px;
   height: 56px;
 }
 
-.timeCard1 {
+.timeCard {
   font-weight: 500;
   font-size: 12px;
   color: #8b735e;
@@ -119,12 +122,12 @@ input::placeholder {
   margin-bottom: 1ren;
 }
 
-.card-subtitle-card1 {
+.card-subtitle-card {
   font-weight: bold;
   color: #00334e;
 }
 
-.layoutCard1 {
+.moreDetailsTempCard {
   font-weight: 500;
   color: #8b735e;
   font-size: 14px;
@@ -137,7 +140,31 @@ input::placeholder {
   background-image: linear-gradient(-225deg, #dec4c8 0%, #ffe6fa 100%);
   line-height: 1.2;
   text-align: left;
+  width: 18rem;
 }
+
+/*button*/
+
+.btn-forecast {
+  color: #00334e;
+  border: double thick #f6f5f5;
+  font-weight: bold;
+  margin-top: 6px;
+  padding: 6px;
+  font-size: 15px;
+}
+
+.btn-forecast:hover {
+  color: #00334e;
+  background-color: #f6f5f5;
+  border: double thick #00334e;
+}
+
+.btn-forecast:focus {
+  box-shadow: none;
+}
+
+/*flip card*/
 
 .flip-card {
   display: grid;
@@ -175,62 +202,36 @@ input::placeholder {
   margin: auto 0;
 }
 
+/* lay-out flip card*/
+
 .card-forecastdays {
   border: solid 2px #dec4c8;
   background-color: #e5dae3;
   color: #00334e;
   font-family: "Rajdhani", sans-serif;
-  font-size: 15px;
   line-height: 0.6;
   height: 100%;
   border-radius: 8px;
 }
 
-.btn-forecast {
-  color: #00334e;
-  border: double thick #f6f5f5;
-  font-weight: bold;
-  margin-top: 6px;
-  padding: 6px;
-  font-size: 15px;
-}
-
-.btn-forecast:hover {
-  color: #00334e;
-  background-color: #f6f5f5;
-  border: double thick #00334e;
-}
-
-.btn-forecast:focus {
-  box-shadow: none;
-}
-
-.threeDays {
-  font-size: 13px;
-  font-weight: 600;
-  color: #00334e;
-}
-
 .dayTemperature {
   font-weight: 600;
   color: #8b735e;
-  font-size: 17px;
+  font-size: 16px;
 }
 
-.forecastCard1 {
-  font-size: 14px;
+.forecastCard {
+  font-size: 13px;
   font-weight: 600;
   text-align: left;
 }
 
 .feelsLikeCold {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 16px;
 }
 
-#icon1,
-#icon2,
-#icon3 {
+.iconCardBack {
   width: 38px;
   height: 38px;
 }

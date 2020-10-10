@@ -47,9 +47,9 @@
             <a href="#" class="celsius disabled">°C</a> |
             <a href="#" class="fahrenheit disabled1">°F</a>
             <img id="iconSingapore" src="" alt="" />
-            <span id="descriptionSingapore"></span>
+            <span class="descriptionWeather" id="descriptionSingapore"></span>
           </div>
-          <div class="col-5 leftLocation">
+          <div class="col-5 rightLocation">
             <div class="timeSingapore"></div>
             Wind:
             <span id="windSingapore"></span>km/h &mdash; Humidity:
@@ -80,38 +80,39 @@
             <div class="flip-card" id="flipCard1">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  <div class="card-resultsHistory" style="width: 18rem">
+                  <div class="card-resultsHistory">
                     <div class="card-body">
                       <h5 class="card-title">
-                        <span class="cityCountryCard1"></span>
+                        <span class="cityCountryCard"></span>
                       </h5>
 
-                      <h6 class="card-subtitle-card1">
+                      <h6 class="card-subtitle-card">
                         <div class="row">
                           <div class="col-3">
-                            <img id="iconCard1" src="" alt="" /><br />
+                            <img class="iconCardFront" src="" alt="" /><br />
                           </div>
                           <div class="col-9">
-                            <span class="temperatureCard1">
-                              <span id="temperatureCard1"></span>°C &mdash;
-                              <span id="descriptionCard1"></span
+                            <span class="temperatureFront"></span>°C &mdash;
+                            <span
+                              class="descriptionWeather descriptionCard"
                             ></span>
                             <br />
 
-                            <span class="layoutCard1">
-                              Feels like: <span id="feelsLikeCard1"></span>°C
+                            <span class="moreDetailsTempCard">
+                              Feels like: <span class="feelsLikeCard"></span>°C
                               <br />
-                              Humidity: <span id="humidityCard1"></span>%<br />
-                              Wind: <span id="windCard1"></span>km/h
+                              Humidity:
+                              <span class="humidityCard"></span>%<br />
+                              Wind: <span class="windCard"></span>km/h
                             </span>
                           </div>
                         </div>
                       </h6>
 
-                      <button class="btn btn-forecast" id="buttonCard1">
+                      <button class="btn btn-forecast buttonCard">
                         3 Days Forecast
                       </button>
-                      <div class="timeCard1">&nbsp;</div>
+                      <div class="timeCard">&nbsp;</div>
                     </div>
                   </div>
                 </div>
@@ -119,9 +120,9 @@
                 <div class="flip-card-back">
                   <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i class="far fa-window-close" id="closeCard1"></i>
+                      <i class="far fa-window-close closeCard"></i>
                       <h5 class="card-title">
-                        <span class="cityCountryCard1"></span>
+                        <span class="cityCountryCard"></span>
                       </h5>
 
                       <div class="container">
@@ -132,44 +133,44 @@
                         </div>
                         <br />
                         <div class="row">
-                          <div class="col-3 forecastCard1" id="day1"></div>
+                          <div class="col-3 forecastCard day1"></div>
                           <div class="col-3">
-                            <img src="" alt="" id="icon1" />
+                            <img src="" alt="" class="iconCardBack icon1" />
                           </div>
                           <div class="col-3 dayTemperature">
-                            <span id="temp1"></span>°C
+                            <span class="temp1"></span>°C
                           </div>
                           <div class="col-3 feelsLikeCold">
-                            <span id="feels1"></span>°C
+                            <span class="feels1"></span>°C
                           </div>
                         </div>
 
                         <div class="row">
-                          <div class="col-3 forecastCard1" id="day2"></div>
+                          <div class="col-3 forecastCard day2"></div>
                           <div class="col-3">
-                            <img src="" alt="" id="icon2" />
+                            <img src="" alt="" class="iconCardBack icon2" />
                           </div>
                           <div class="col-3 dayTemperature">
-                            <span id="temp2"></span>°C
+                            <span class="temp2"></span>°C
                           </div>
                           <div class="col-3 feelsLikeCold">
-                            <span id="feels2"></span>°C
+                            <span class="feels2"></span>°C
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-3 forecastCard1" id="day3"></div>
+                          <div class="col-3 forecastCard day3"></div>
                           <div class="col-3">
-                            <img src="" alt="" id="icon3" />
+                            <img src="" alt="" class="iconCardBack icon3" />
                           </div>
                           <div class="col-3 dayTemperature">
-                            <span id="temp3"></span>°C
+                            <span class="temp3"></span>°C
                           </div>
                           <div class="col-3 feelsLikeCold">
-                            <span id="feels3"></span>°C
+                            <span class="feels3"></span>°C
                           </div>
                         </div>
                       </div>
-                      <div class="timeCard1">&nbsp;</div>
+                      <div class="timeCard timeCard1">&nbsp;</div>
                     </div>
                   </div>
                 </div>
@@ -194,7 +195,7 @@
                         <br />
                         Chance of rain 30%
                       </p>
-                      <button class="btn btn-forecast" id="buttonCard2">
+                      <button class="btn btn-forecast buttonCard">
                         3 Days Forecast
                       </button>
                     </div>
@@ -204,7 +205,7 @@
                 <div class="flip-card-back">
                   <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i class="far fa-window-close" id="closeCard2"> </i>
+                      <i class="far fa-window-close closeCard"> </i>
                       <h5 class="card-title">Tokyo, Japan</h5>
                       <h6 class="card-subtitle mb-2 text-muted">
                         3 Days Forecast
@@ -277,7 +278,7 @@
                         <br />
                         Chance of rain 30%
                       </p>
-                      <button class="btn btn-forecast" id="buttonCard3">
+                      <button class="btn btn-forecast buttonCard">
                         3 Days Forecast
                       </button>
                     </div>
@@ -287,7 +288,7 @@
                 <div class="flip-card-back">
                   <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i class="far fa-window-close" id="closeCard3"> </i>
+                      <i class="far fa-window-close closeCard"> </i>
                       <h5 class="card-title">Melbourne, Australia</h5>
                       <h6 class="card-subtitle mb-2 text-muted">
                         3 Days Forecast
@@ -365,7 +366,7 @@
                         <br />
                         Chance of rain 30%
                       </p>
-                      <button class="btn btn-forecast" id="buttonCard4">
+                      <button class="btn btn-forecast buttonCard">
                         3 Days Forecast
                       </button>
                     </div>
@@ -375,7 +376,7 @@
                 <div class="flip-card-back">
                   <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i class="far fa-window-close" id="closeCard4"> </i>
+                      <i class="far fa-window-close closeCard"> </i>
                       <h5 class="card-title">Cape Town, South Africa</h5>
                       <h6 class="card-subtitle mb-2 text-muted">
                         3 Days Forecast
