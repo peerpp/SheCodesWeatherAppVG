@@ -29,6 +29,13 @@ let months = [
   "Dec",
 ];
 
+function formatShortDate(date) {
+  let day = days[date.getUTCDay()];
+  let month = months[date.getUTCMonth()];
+  let numDay = date.getUTCDate();
+  return `${day} ${month} ${numDay}`;
+}
+
 function formatUTCDate(date) {
   let day = days[date.getUTCDay()];
   let hours = date.getUTCHours();
@@ -80,7 +87,10 @@ element.innerHTML = formatDate(now);
 
 function displayCity(event) {
   event.preventDefault();
-  let inputLocation = document.querySelector("#inputDestination").value.trim();
+  let inputLocation = document
+    .querySelector("#inputDestination")
+    .value.trim()
+    .toLowerCase();
 
   let formCities = document.querySelectorAll(".card-title-card1");
   formCities.forEach((formCity) => (formCity.innerHTML = inputLocation));
@@ -172,14 +182,19 @@ function showTemperature(response) {
   let country = response.data.sys.country;
   let wind = Math.round(response.data.wind.speed);
   let time = new Date(response.data.dt * 1000 + response.data.timezone * 1000);
+  let feelsLike = Math.round(response.data.main.feels_like);
+
+  let latitude = response.data.coord.lat;
+  let longitude = response.data.coord.lon;
 
   let temperatureElement = document.querySelector("#temperatureCard1");
   let descriptionElementCard1 = document.querySelector("#descriptionCard1");
   let humidityElementCard1 = document.querySelector("#humidityCard1");
-  let countryElementCard1 = document.querySelector("#countryCard1");
+  let countryElementCards1 = document.querySelectorAll(".countryCard1");
   let iconElementCard1 = document.querySelector("#iconCard1");
   let windElementCard1 = document.querySelector("#windCard1");
-  let timeCard1 = document.querySelector(".timeCard1");
+  let timeCards1 = document.querySelectorAll(".timeCard1");
+  let feelsLikeCard1 = document.querySelector("#feelsLikeCard1");
 
   temperatureElement.innerHTML = temperature;
   descriptionElementCard1.innerHTML = description;
@@ -189,9 +204,74 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
   iconElementCard1.setAttribute("alt", response.data.weather[0].description);
-  countryElementCard1.innerHTML = getCountryName(country);
+  countryElementCards1.forEach(
+    (countryCard1) => (countryCard1.innerHTML = getCountryName(country))
+  );
   windElementCard1.innerHTML = wind;
-  timeCard1.innerHTML = formatUTCDate(time);
+  timeCards1.forEach(
+    (timeCard1) => (timeCard1.innerHTML = formatUTCDate(time))
+  );
+  feelsLikeCard1.innerHTML = feelsLike;
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(forecast5days);
+}
+
+function forecast5days(response) {
+  let day1 = formatShortDate(new Date(response.data.daily[1].dt * 1000));
+  let day2 = formatShortDate(new Date(response.data.daily[2].dt * 1000));
+  let day3 = formatShortDate(new Date(response.data.daily[3].dt * 1000));
+  let temp1 = Math.round(response.data.daily[1].temp.day);
+  let temp2 = Math.round(response.data.daily[2].temp.day);
+  let temp3 = Math.round(response.data.daily[3].temp.day);
+  let feels1 = Math.round(response.data.daily[1].feels_like.day);
+  let feels2 = Math.round(response.data.daily[2].feels_like.day);
+  let feels3 = Math.round(response.data.daily[3].feels_like.day);
+  let icon1 = response.data.daily[1].weather[0].icon;
+  let icon2 = response.data.daily[2].weather[0].icon;
+  let icon3 = response.data.daily[3].weather[0].icon;
+  let description1 = response.data.daily[1].weather[0].description;
+  let description2 = response.data.daily[2].weather[0].description;
+  let description3 = response.data.daily[3].weather[0].description;
+
+  let day1Element = document.querySelector("#day1");
+  let day2Element = document.querySelector("#day2");
+  let day3Element = document.querySelector("#day3");
+  let temp1Element = document.querySelector("#temp1");
+  let temp2Element = document.querySelector("#temp2");
+  let temp3Element = document.querySelector("#temp3");
+  let feels1Element = document.querySelector("#feels1");
+  let feels2Element = document.querySelector("#feels2");
+  let feels3Element = document.querySelector("#feels3");
+  let icon1Element = document.querySelector("#icon1");
+  let icon2Element = document.querySelector("#icon2");
+  let icon3Element = document.querySelector("#icon3");
+
+  day1Element.innerHTML = day1;
+  day2Element.innerHTML = day2;
+  day3Element.innerHTML = day3;
+  temp1Element.innerHTML = temp1;
+  temp2Element.innerHTML = temp2;
+  temp3Element.innerHTML = temp3;
+  feels1Element.innerHTML = feels1;
+  feels2Element.innerHTML = feels2;
+  feels3Element.innerHTML = feels3;
+
+  icon1Element.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon1}.png`
+  );
+  icon1Element.setAttribute("alt", description1);
+  icon2Element.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon2}.png`
+  );
+  icon2Element.setAttribute("alt", description2);
+  icon3Element.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon3}.png`
+  );
+  icon3Element.setAttribute("alt", description3);
 }
 
 function handlePosition(position) {
@@ -210,3 +290,46 @@ function error() {
 }
 
 navigator.geolocation.getCurrentPosition(handlePosition, error);
+
+// flip buttons
+function clickButtonCard1(event) {
+  document.querySelector("#flipCard1").classList.add("flip");
+}
+function clickCloseCard1(event) {
+  document.querySelector("#flipCard1").classList.remove("flip");
+}
+function clickButtonCard2(event) {
+  document.querySelector("#flipCard2").classList.add("flip");
+}
+function clickCloseCard2(event) {
+  document.querySelector("#flipCard2").classList.remove("flip");
+}
+function clickButtonCard3(event) {
+  document.querySelector("#flipCard3").classList.add("flip");
+}
+function clickCloseCard3(event) {
+  document.querySelector("#flipCard3").classList.remove("flip");
+}
+function clickButtonCard4(event) {
+  document.querySelector("#flipCard4").classList.add("flip");
+}
+function clickCloseCard4(event) {
+  document.querySelector("#flipCard4").classList.remove("flip");
+}
+
+let buttonCard1 = document.querySelector("#buttonCard1");
+buttonCard1.addEventListener("click", clickButtonCard1);
+let closeCard1 = document.querySelector("#closeCard1");
+closeCard1.addEventListener("click", clickCloseCard1);
+let buttonCard2 = document.querySelector("#buttonCard2");
+buttonCard2.addEventListener("click", clickButtonCard2);
+let closeCard2 = document.querySelector("#closeCard2");
+closeCard2.addEventListener("click", clickCloseCard2);
+let buttonCard3 = document.querySelector("#buttonCard3");
+buttonCard3.addEventListener("click", clickButtonCard3);
+let closeCard3 = document.querySelector("#closeCard3");
+closeCard3.addEventListener("click", clickCloseCard3);
+let buttonCard4 = document.querySelector("#buttonCard4");
+buttonCard4.addEventListener("click", clickButtonCard4);
+let closeCard4 = document.querySelector("#closeCard4");
+closeCard4.addEventListener("click", clickCloseCard4);

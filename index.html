@@ -45,7 +45,7 @@
             <div id="userLocation">Singapore</div>
             <span class="temperatureSingapore"></span>
             <a href="#" class="celsius disabled">°C</a> |
-            <a href="#" class="fahrenheit">°F</a>
+            <a href="#" class="fahrenheit disabled1">°F</a>
             <img id="iconSingapore" src="" alt="" />
             <span id="descriptionSingapore"></span>
           </div>
@@ -77,14 +77,14 @@
       <div class="container2">
         <div class="row">
           <div class="col-6">
-            <div class="flip-card">
+            <div class="flip-card" id="flipCard1">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-resultsHistory" style="width: 18rem">
                     <div class="card-body">
                       <h5 class="card-title">
                         <span class="card-title-card1">New York</span>,
-                        <span id="countryCard1">United States</span>
+                        <span class="countryCard1">United States</span>
                       </h5>
 
                       <h6 class="card-subtitle-card1">
@@ -99,20 +99,19 @@
                               <span id="descriptionCard1"></span
                             ></span>
                             <br />
+
                             <span class="layoutCard1">
-                              Humidity:
-                              <span id="humidityCard1"></span>%<br />
+                              Feels like: <span id="feelsLikeCard1"></span>°C
+                              <br />
+                              Humidity: <span id="humidityCard1"></span>%<br />
                               Wind: <span id="windCard1"></span>km/h
                             </span>
                           </div>
                         </div>
                       </h6>
 
-                      <button
-                        class="btn btn-forecast"
-                        onclick="document.querySelector('.flip-card').classList.add('flip')"
-                      >
-                        5 Days Forecast
+                      <button class="btn btn-forecast" id="buttonCard1">
+                        3 Days Forecast
                       </button>
                       <div class="timeCard1">&nbsp;</div>
                     </div>
@@ -120,59 +119,60 @@
                 </div>
 
                 <div class="flip-card-back">
-                  <div class="card card-forecasthours">
+                  <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i
-                        class="far fa-window-close"
-                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
-                      >
-                      </i>
-                      <h5 class="card-title card-title-card1">
-                        New York, United States
+                      <i class="far fa-window-close" id="closeCard1"></i>
+                      <h5 class="card-title">
+                        <span class="card-title-card1"></span>,
+                        <span class="countryCard1"></span>
                       </h5>
 
                       <div class="container">
-                        <div class="row mb-1 text-center">
-                          <div class="col p-0">9AM</div>
-                          <div class="col p-0">12PM</div>
-                          <div class="col p-0">3PM</div>
-                          <div class="col p-0">6PM</div>
-                          <div class="col p-0">9PM</div>
+                        <div class="row">
+                          <div class="col-6"></div>
+                          <div class="col-3 dayTemperature">Day</div>
+                          <div class="col-3 feelsLikeCold">Feels</div>
                         </div>
                         <br />
-                        <div class="row mb-1 text-center">
-                          <div class="col p-0">25°C</div>
-                          <div class="col p-0">20°C</div>
-                          <div class="col p-0">22°C</div>
-                          <div class="col p-0">24°C</div>
-                          <div class="col p-0">25°C</div>
-                        </div>
-                        <div class="row mb-1 text-center">
-                          <div class="col p-0">19°C</div>
-                          <div class="col p-0">14°C</div>
-                          <div class="col p-0">15°C</div>
-                          <div class="col p-0">16°C</div>
-                          <div class="col p-0">16°C</div>
-                        </div>
-                        <div class="row mb-1 text-center">
-                          <div class="col p-0"><i class="fas fa-sun"></i></div>
-                          <div class="col p-0">
-                            <i class="fas fa-cloud"></i>
+                        <div class="row">
+                          <div class="col-3 forecastCard1" id="day1"></div>
+                          <div class="col-3">
+                            <img src="" alt="" id="icon1" />
                           </div>
-                          <div class="col p-0"><i class="fas fa-sun"></i></div>
-                          <div class="col p-0">
-                            <i class="fas fa-cloud"></i>
+                          <div class="col-3 dayTemperature">
+                            <span id="temp1"></span>°C
                           </div>
-                          <div class="col p-0"><i class="fas fa-sun"></i></div>
+                          <div class="col-3 feelsLikeCold">
+                            <span id="feels1"></span>°C
+                          </div>
                         </div>
-                        <div class="row text-center">
-                          <div class="col p-0">30%</div>
-                          <div class="col p-0">50%</div>
-                          <div class="col p-0">60%</div>
-                          <div class="col p-0">40%</div>
-                          <div class="col p-0">50%</div>
+
+                        <div class="row">
+                          <div class="col-3 forecastCard1" id="day2"></div>
+                          <div class="col-3">
+                            <img src="" alt="" id="icon2" />
+                          </div>
+                          <div class="col-3 dayTemperature">
+                            <span id="temp2"></span>°C
+                          </div>
+                          <div class="col-3 feelsLikeCold">
+                            <span id="feels2"></span>°C
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-3 forecastCard1" id="day3"></div>
+                          <div class="col-3">
+                            <img src="" alt="" id="icon3" />
+                          </div>
+                          <div class="col-3 dayTemperature">
+                            <span id="temp3"></span>°C
+                          </div>
+                          <div class="col-3 feelsLikeCold">
+                            <span id="feels3"></span>°C
+                          </div>
                         </div>
                       </div>
+                      <div class="timeCard1">&nbsp;</div>
                     </div>
                   </div>
                 </div>
@@ -181,7 +181,7 @@
           </div>
 
           <div class="col-6">
-            <div class="flip-card">
+            <div class="flip-card" id="flipCard2">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-resultsHistory" style="width: 18rem">
@@ -197,27 +197,20 @@
                         <br />
                         Chance of rain 30%
                       </p>
-                      <button
-                        class="btn btn-forecast"
-                        onclick="document.querySelector('.flip-card').classList.add('flip')"
-                      >
-                        5 Days Forecast
+                      <button class="btn btn-forecast" id="buttonCard2">
+                        3 Days Forecast
                       </button>
                     </div>
                   </div>
                 </div>
 
                 <div class="flip-card-back">
-                  <div class="card card-forecast5days">
+                  <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i
-                        class="far fa-window-close"
-                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
-                      >
-                      </i>
+                      <i class="far fa-window-close" id="closeCard2"> </i>
                       <h5 class="card-title">Tokyo, Japan</h5>
                       <h6 class="card-subtitle mb-2 text-muted">
-                        5 Days Forecast
+                        3 Days Forecast
                       </h6>
 
                       <div class="container">
@@ -260,13 +253,6 @@
                           </div>
                           <div class="col p-0"><i class="fas fa-sun"></i></div>
                         </div>
-                        <div class="row text-center">
-                          <div class="col p-0">30%</div>
-                          <div class="col p-0">50%</div>
-                          <div class="col p-0">60%</div>
-                          <div class="col p-0">40%</div>
-                          <div class="col p-0">50%</div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -278,7 +264,7 @@
         <br />
         <div class="row">
           <div class="col-6">
-            <div class="flip-card">
+            <div class="flip-card" id="flipCard3">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-resultsHistory" style="width: 18rem">
@@ -294,27 +280,20 @@
                         <br />
                         Chance of rain 30%
                       </p>
-                      <button
-                        class="btn btn-forecast"
-                        onclick="document.querySelector('.flip-card').classList.add('flip')"
-                      >
-                        5 Days Forecast
+                      <button class="btn btn-forecast" id="buttonCard3">
+                        3 Days Forecast
                       </button>
                     </div>
                   </div>
                 </div>
 
                 <div class="flip-card-back">
-                  <div class="card card-forecast5days">
+                  <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i
-                        class="far fa-window-close"
-                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
-                      >
-                      </i>
+                      <i class="far fa-window-close" id="closeCard3"> </i>
                       <h5 class="card-title">Melbourne, Australia</h5>
                       <h6 class="card-subtitle mb-2 text-muted">
-                        5 Days Forecast
+                        3 Days Forecast
                       </h6>
 
                       <div class="container">
@@ -373,7 +352,7 @@
           </div>
 
           <div class="col-6">
-            <div class="flip-card">
+            <div class="flip-card" id="flipCard4">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-resultsHistory" style="width: 18rem">
@@ -389,27 +368,20 @@
                         <br />
                         Chance of rain 30%
                       </p>
-                      <button
-                        class="btn btn-forecast"
-                        onclick="document.querySelector('.flip-card').classList.add('flip')"
-                      >
-                        5 Days Forecast
+                      <button class="btn btn-forecast" id="buttonCard4">
+                        3 Days Forecast
                       </button>
                     </div>
                   </div>
                 </div>
 
                 <div class="flip-card-back">
-                  <div class="card card-forecast5days">
+                  <div class="card card-forecastdays">
                     <div class="card-body">
-                      <i
-                        class="far fa-window-close"
-                        onclick="document.querySelector('.flip-card').classList.remove('flip')"
-                      >
-                      </i>
+                      <i class="far fa-window-close" id="closeCard4"> </i>
                       <h5 class="card-title">Cape Town, South Africa</h5>
                       <h6 class="card-subtitle mb-2 text-muted">
-                        5 Days Forecast
+                        3 Days Forecast
                       </h6>
 
                       <div class="container">
