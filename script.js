@@ -1,19 +1,7 @@
 let apiKey = "71f57c13bbcc4d290991410e3cd840b3";
 
-// header - date Singapore
-
 let now = new Date();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
-
-function minutesTwoDigits(minutes) {
-  if (minutes < 10) {
-    return `0${minutes}`;
-  } else {
-    return minutes;
-  }
-}
-
 let months = [
   "Jan",
   "Feb",
@@ -28,6 +16,14 @@ let months = [
   "Nov",
   "Dec",
 ];
+
+function minutesTwoDigits(minutes) {
+  if (minutes < 10) {
+    return `0${minutes}`;
+  } else {
+    return minutes;
+  }
+}
 
 function formatShortDate(date) {
   let day = days[date.getUTCDay()];
@@ -92,9 +88,6 @@ function displayCity(event) {
     .value.trim()
     .toLowerCase();
 
-  let formCities = document.querySelectorAll(".card-title-card1");
-  formCities.forEach((formCity) => (formCity.innerHTML = inputLocation));
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputLocation}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
@@ -126,7 +119,7 @@ function temperatureSingapore(response) {
   humidityElementSin.innerHTML = humidity;
   iconElementSin.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
   iconElementSin.setAttribute("alt", response.data.weather[0].description);
   windElementSin.innerHTML = wind;
@@ -183,30 +176,34 @@ function showTemperature(response) {
   let wind = Math.round(response.data.wind.speed);
   let time = new Date(response.data.dt * 1000 + response.data.timezone * 1000);
   let feelsLike = Math.round(response.data.main.feels_like);
-
   let latitude = response.data.coord.lat;
   let longitude = response.data.coord.lon;
+  let inputLocation = document
+    .querySelector("#inputDestination")
+    .value.trim()
+    .toLowerCase();
 
   let temperatureElement = document.querySelector("#temperatureCard1");
   let descriptionElementCard1 = document.querySelector("#descriptionCard1");
   let humidityElementCard1 = document.querySelector("#humidityCard1");
-  let countryElementCards1 = document.querySelectorAll(".countryCard1");
   let iconElementCard1 = document.querySelector("#iconCard1");
   let windElementCard1 = document.querySelector("#windCard1");
   let timeCards1 = document.querySelectorAll(".timeCard1");
   let feelsLikeCard1 = document.querySelector("#feelsLikeCard1");
+  let formCities = document.querySelectorAll(".cityCountryCard1");
 
+  formCities.forEach(
+    (formCity) =>
+      (formCity.innerHTML = `${inputLocation}, ${getCountryName(country)}`)
+  );
   temperatureElement.innerHTML = temperature;
   descriptionElementCard1.innerHTML = description;
   humidityElementCard1.innerHTML = humidity;
   iconElementCard1.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
   iconElementCard1.setAttribute("alt", response.data.weather[0].description);
-  countryElementCards1.forEach(
-    (countryCard1) => (countryCard1.innerHTML = getCountryName(country))
-  );
   windElementCard1.innerHTML = wind;
   timeCards1.forEach(
     (timeCard1) => (timeCard1.innerHTML = formatUTCDate(time))
@@ -259,17 +256,17 @@ function forecast5days(response) {
 
   icon1Element.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${icon1}.png`
+    `https://openweathermap.org/img/wn/${icon1}.png`
   );
   icon1Element.setAttribute("alt", description1);
   icon2Element.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${icon2}.png`
+    `https://openweathermap.org/img/wn/${icon2}.png`
   );
   icon2Element.setAttribute("alt", description2);
   icon3Element.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${icon3}.png`
+    `https://openweathermap.org/img/wn/${icon3}.png`
   );
   icon3Element.setAttribute("alt", description3);
 }

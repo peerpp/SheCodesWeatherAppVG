@@ -10,7 +10,7 @@ header {
   background-size: 600px;
   height: 265px;
   border: double thick #00334e;
-  border-radius: 6px;
+  border-radius: 8px;
   color: #f6f5f5;
   padding: 30px;
 }
@@ -28,7 +28,7 @@ h3 {
 }
 
 .fa-clock {
-  color: #8b735e;
+  color: #c75f2c;
 }
 .temperature {
   font-family: "Rajdhani", sans-serif;
@@ -63,7 +63,7 @@ a.disabled {
 }
 
 a.disabled1 {
-  color: #8b735e;
+  color: #c75f2c;
 }
 
 .formDestination {
@@ -133,7 +133,7 @@ input::placeholder {
 .card-resultsHistory {
   font-family: "Rajdhani", sans-serif;
   font-size: 15px;
-  border-radius: 6px;
+  border-radius: 8px;
   background-image: linear-gradient(-225deg, #dec4c8 0%, #ffe6fa 100%);
   line-height: 1.2;
   text-align: left;
@@ -176,13 +176,14 @@ input::placeholder {
 }
 
 .card-forecastdays {
-  border: solid #dec4c8;
+  border: solid 2px #dec4c8;
   background-color: #e5dae3;
   color: #00334e;
   font-family: "Rajdhani", sans-serif;
   font-size: 15px;
   line-height: 0.6;
   height: 100%;
+  border-radius: 8px;
 }
 
 .btn-forecast {
@@ -238,16 +239,16 @@ input::placeholder {
   position: absolute;
   top: 0;
   right: 0;
-  font-weight: 600px;
   font-size: 25px;
   color: #00334e;
+  opacity: 0.8;
 }
 
 footer {
   font-family: "Julius Sans One", sans-serif;
   font-size: 10px;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: #00334e;
   opacity: 0.8;
   color: #f6f5f5;
