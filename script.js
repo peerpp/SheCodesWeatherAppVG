@@ -166,9 +166,35 @@ function setCelsius(event) {
 let celsius = document.querySelector(".celsius");
 celsius.addEventListener("click", setCelsius);
 
-// block history 1
+function rotateCards() {
+  document.querySelector("#flipCard4").innerHTML = document.querySelector(
+    "#flipCard3"
+  ).innerHTML;
+  document.querySelector("#flipCard3").innerHTML = document.querySelector(
+    "#flipCard2"
+  ).innerHTML;
+  document.querySelector("#flipCard2").innerHTML = document.querySelector(
+    "#flipCard1"
+  ).innerHTML;
+
+  document.querySelector("#flipCard4").classList = document.querySelector(
+    "#flipCard3"
+  ).classList;
+  document.querySelector("#flipCard3").classList = document.querySelector(
+    "#flipCard2"
+  ).classList;
+  document.querySelector("#flipCard2").classList = document.querySelector(
+    "#flipCard1"
+  ).classList;
+
+  document.querySelector("#flipCard1").classList.remove("flip");
+
+  addEventListeners();
+}
 
 function showTemperature(response) {
+  rotateCards();
+
   let temperature = Math.round(response.data.main.temp);
   let description = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
@@ -318,19 +344,23 @@ function clickCloseCard4(event) {
   document.querySelector("#flipCard4").classList.remove("flip");
 }
 
-let buttonCard1 = document.querySelector("#flipCard1 .buttonCard");
-buttonCard1.addEventListener("click", clickButtonCard1);
-let closeCard1 = document.querySelector("#flipCard1 .closeCard");
-closeCard1.addEventListener("click", clickCloseCard1);
-let buttonCard2 = document.querySelector("#flipCard2 .buttonCard");
-buttonCard2.addEventListener("click", clickButtonCard2);
-let closeCard2 = document.querySelector("#flipCard2 .closeCard");
-closeCard2.addEventListener("click", clickCloseCard2);
-let buttonCard3 = document.querySelector("#flipCard3 .buttonCard");
-buttonCard3.addEventListener("click", clickButtonCard3);
-let closeCard3 = document.querySelector("#flipCard3 .closeCard");
-closeCard3.addEventListener("click", clickCloseCard3);
-let buttonCard4 = document.querySelector("#flipCard4 .buttonCard");
-buttonCard4.addEventListener("click", clickButtonCard4);
-let closeCard4 = document.querySelector("#flipCard4 .closeCard");
-closeCard4.addEventListener("click", clickCloseCard4);
+function addEventListeners() {
+  let buttonCard1 = document.querySelector("#flipCard1 .buttonCard");
+  buttonCard1.addEventListener("click", clickButtonCard1);
+  let closeCard1 = document.querySelector("#flipCard1 .closeCard");
+  closeCard1.addEventListener("click", clickCloseCard1);
+  let buttonCard2 = document.querySelector("#flipCard2 .buttonCard");
+  buttonCard2.addEventListener("click", clickButtonCard2);
+  let closeCard2 = document.querySelector("#flipCard2 .closeCard");
+  closeCard2.addEventListener("click", clickCloseCard2);
+  let buttonCard3 = document.querySelector("#flipCard3 .buttonCard");
+  buttonCard3.addEventListener("click", clickButtonCard3);
+  let closeCard3 = document.querySelector("#flipCard3 .closeCard");
+  closeCard3.addEventListener("click", clickCloseCard3);
+  let buttonCard4 = document.querySelector("#flipCard4 .buttonCard");
+  buttonCard4.addEventListener("click", clickButtonCard4);
+  let closeCard4 = document.querySelector("#flipCard4 .closeCard");
+  closeCard4.addEventListener("click", clickCloseCard4);
+}
+
+addEventListeners();
