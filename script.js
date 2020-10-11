@@ -107,12 +107,6 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Singapore&units=
 axios.get(`${apiUrl}&appid=${apiKey}`).then(temperatureSingapore);
 
 function temperatureSingapore(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let description = response.data.weather[0].description;
-  let humidity = response.data.main.humidity;
-  let wind = Math.round(response.data.wind.speed);
-  let userLocation = response.data.name;
-
   let temperatureElementSin = document.querySelector(".temperatureSingapore");
   let descriptionElementSin = document.querySelector("#descriptionSingapore");
   let humidityElementSin = document.querySelector("#humiditySingapore");
@@ -120,16 +114,16 @@ function temperatureSingapore(response) {
   let windElementSin = document.querySelector("#windSingapore");
   let userLocationElement = document.querySelector("#userLocation");
 
-  temperatureElementSin.innerHTML = temperature;
-  descriptionElementSin.innerHTML = description;
-  humidityElementSin.innerHTML = humidity;
+  temperatureElementSin.innerHTML = Math.round(response.data.main.temp);
+  descriptionElementSin.innerHTML = response.data.weather[0].description;
+  humidityElementSin.innerHTML = response.data.main.humidity;
   iconElementSin.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
   iconElementSin.setAttribute("alt", response.data.weather[0].description);
-  windElementSin.innerHTML = wind;
-  userLocationElement.innerHTML = userLocation;
+  windElementSin.innerHTML = Math.round(response.data.wind.speed);
+  userLocationElement.innerHTML = response.data.name;
 }
 
 function converterCtoF(celsius) {
@@ -245,26 +239,10 @@ function showTemperature(response) {
   buttonCard1.classList.remove("btn-forecast-hidden");
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(forecast5days);
+  axios.get(apiUrl).then(forecast3days);
 }
 
-function forecast5days(response) {
-  let day1 = formatShortDate(new Date(response.data.daily[1].dt * 1000));
-  let day2 = formatShortDate(new Date(response.data.daily[2].dt * 1000));
-  let day3 = formatShortDate(new Date(response.data.daily[3].dt * 1000));
-  let temp1 = Math.round(response.data.daily[1].temp.day);
-  let temp2 = Math.round(response.data.daily[2].temp.day);
-  let temp3 = Math.round(response.data.daily[3].temp.day);
-  let feels1 = Math.round(response.data.daily[1].feels_like.day);
-  let feels2 = Math.round(response.data.daily[2].feels_like.day);
-  let feels3 = Math.round(response.data.daily[3].feels_like.day);
-  let icon1 = response.data.daily[1].weather[0].icon;
-  let icon2 = response.data.daily[2].weather[0].icon;
-  let icon3 = response.data.daily[3].weather[0].icon;
-  let description1 = response.data.daily[1].weather[0].description;
-  let description2 = response.data.daily[2].weather[0].description;
-  let description3 = response.data.daily[3].weather[0].description;
-
+function forecast3days(response) {
   let day1Element = document.querySelector("#flipCard1 .day1");
   let day2Element = document.querySelector("#flipCard1 .day2");
   let day3Element = document.querySelector("#flipCard1 .day3");
@@ -278,31 +256,46 @@ function forecast5days(response) {
   let icon2Element = document.querySelector("#flipCard1 .icon2");
   let icon3Element = document.querySelector("#flipCard1 .icon3");
 
-  day1Element.innerHTML = day1;
-  day2Element.innerHTML = day2;
-  day3Element.innerHTML = day3;
-  temp1Element.innerHTML = temp1;
-  temp2Element.innerHTML = temp2;
-  temp3Element.innerHTML = temp3;
-  feels1Element.innerHTML = feels1;
-  feels2Element.innerHTML = feels2;
-  feels3Element.innerHTML = feels3;
+  day1Element.innerHTML = formatShortDate(
+    new Date(response.data.daily[1].dt * 1000)
+  );
+  day2Element.innerHTML = formatShortDate(
+    new Date(response.data.daily[2].dt * 1000)
+  );
+  day3Element.innerHTML = formatShortDate(
+    new Date(response.data.daily[3].dt * 1000)
+  );
+  temp1Element.innerHTML = Math.round(response.data.daily[1].temp.day);
+  temp2Element.innerHTML = Math.round(response.data.daily[2].temp.day);
+  temp3Element.innerHTML = Math.round(response.data.daily[3].temp.day);
+  feels1Element.innerHTML = Math.round(response.data.daily[1].feels_like.day);
+  feels2Element.innerHTML = Math.round(response.data.daily[2].feels_like.day);
+  feels3Element.innerHTML = Math.round(response.data.daily[3].feels_like.day);
 
   icon1Element.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${icon1}.png`
+    `https://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}.png`
   );
-  icon1Element.setAttribute("alt", description1);
+  icon1Element.setAttribute(
+    "alt",
+    response.data.daily[1].weather[0].description
+  );
   icon2Element.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${icon2}.png`
+    `https://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}.png`
   );
-  icon2Element.setAttribute("alt", description2);
+  icon2Element.setAttribute(
+    "alt",
+    response.data.daily[2].weather[0].description
+  );
   icon3Element.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${icon3}.png`
+    `https://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}.png`
   );
-  icon3Element.setAttribute("alt", description3);
+  icon3Element.setAttribute(
+    "alt",
+    response.data.daily[3].weather[0].description
+  );
 }
 
 function handlePosition(position) {
