@@ -89,7 +89,13 @@ function displayCity(event) {
     .toLowerCase();
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputLocation}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+  axios
+    .get(`${apiUrl}&appid=${apiKey}`)
+    .then(showTemperature)
+    .catch(
+      (err) =>
+        (document.querySelector("#inputDestination").value = "Not found!")
+    );
 }
 
 let formCity = document.querySelector("form");
@@ -216,29 +222,27 @@ function showTemperature(response) {
     "#flipCard1 .descriptionCard"
   );
   let humidityElementCard1 = document.querySelector("#flipCard1 .humidityCard");
-  let iconElementCard1 = document.querySelector("#flipCard1 .iconCardFront");
   let windElementCard1 = document.querySelector("#flipCard1 .windCard");
   let timeCards1 = document.querySelectorAll("#flipCard1 .timeCard");
   let feelsLikeCard1 = document.querySelector("#flipCard1 .feelsLikeCard");
   let formCities = document.querySelectorAll("#flipCard1 .cityCountryCard");
+  let searchIconCard1 = document.querySelector("#flipCard1 .searchIcon");
+  let buttonCard1 = document.querySelector("#flipCard1 .btn-forecast");
 
   formCities.forEach(
     (formCity) =>
       (formCity.innerHTML = `${inputLocation}, ${getCountryName(country)}`)
   );
-  temperatureElement.innerHTML = temperature;
+  temperatureElement.innerHTML = `${temperature}°C &mdash;`;
   descriptionElementCard1.innerHTML = description;
-  humidityElementCard1.innerHTML = humidity;
-  iconElementCard1.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
-  );
-  iconElementCard1.setAttribute("alt", response.data.weather[0].description);
-  windElementCard1.innerHTML = wind;
+  humidityElementCard1.innerHTML = `Humidity ${humidity}%`;
+  searchIconCard1.innerHTML = `<img class="iconCardFront" src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png" alt="${response.data.weather[0].description}"/>`;
+  windElementCard1.innerHTML = `Wind: ${wind} km/h`;
   timeCards1.forEach(
     (timeCard1) => (timeCard1.innerHTML = formatUTCDate(time))
   );
-  feelsLikeCard1.innerHTML = feelsLike;
+  feelsLikeCard1.innerHTML = `Feels like: ${feelsLike}°C`;
+  buttonCard1.classList.remove("btn-forecast-hidden");
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(forecast5days);

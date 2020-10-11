@@ -1,7 +1,7 @@
 body {
   background-image: linear-gradient(-225deg, #e2ccc8 0%, #00334e 100%);
-  width: 600px;
   margin: 0 auto;
+  width: 600px;
 }
 
 /* Header*/
@@ -10,21 +10,21 @@ header {
   background-image: url("../image/singapore.jpg");
   background-repeat: no-repeat;
   background-size: 600px;
-  height: 265px;
   border: double thick #00334e;
   border-radius: 8px;
   color: #f6f5f5;
+  height: 265px;
   padding: 30px;
 }
 
 /*Title Header*/
 
 h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 31px;
   font-weight: 600;
   margin-bottom: 70px;
   text-align: center;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 31px;
 }
 
 .holiday {
@@ -34,37 +34,38 @@ h3 {
 .fa-clock {
   color: #c75f2c;
 }
+
 .temperature {
   font-family: "Rajdhani", sans-serif;
   font-size: 14px;
-  text-align: left;
   font-weight: 600;
   line-height: 1.5;
+  text-align: left;
 }
 
 .locationCurrent {
-  padding: 0px;
   font-size: 16px;
   line-height: 1.5;
+  padding: 0px;
 }
 
 .rightLocation {
-  text-align: right;
   font-size: 16px;
   line-height: 1.5;
   padding: 0px;
+  text-align: right;
 }
 
 #iconSingapore {
-  width: 30px;
   height: 30px;
+  width: 30px;
 }
 
 a.disabled {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
   color: #f6f5f5;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
 }
 
 a.disabled1 {
@@ -78,16 +79,16 @@ a.disabled1 {
 }
 
 input {
-  opacity: 0.9;
-  font-size: 16px;
-  font-family: "Rajdhani", sans-serif;
-  line-height: 1.5;
-  color: #00334e;
-  font-weight: 600;
+  background-color: #f6f5f5;
   border-radius: 6px;
+  color: #00334e;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  opacity: 0.9;
   padding: 1px;
   text-align: center;
-  background-color: #f6f5f5;
 }
 
 input::placeholder {
@@ -101,68 +102,80 @@ input::placeholder {
 /*Card*/
 
 .iconCardFront {
-  width: 56px;
   height: 56px;
+  width: 56px;
+}
+
+.fa-search-location {
+  color: #c75f2c;
+  font-size: 38px;
+  margin-left: 15px;
 }
 
 .timeCard {
-  font-weight: 500;
-  font-size: 12px;
   color: #8b735e;
+  font-size: 12px;
+  font-weight: 500;
   margin-top: 12px;
 }
 
 .card-title {
-  font-weight: bold;
-  font-size: 24px;
-  text-transform: capitalize;
-  height: 42px;
   color: #c75f2c;
+  font-size: 24px;
+  font-weight: bold;
+  height: 42px;
   line-height: 1;
   margin-bottom: 1ren;
+  text-transform: capitalize;
 }
 
 .card-subtitle-card {
-  font-weight: bold;
   color: #00334e;
+  font-weight: bold;
 }
 
 .moreDetailsTempCard {
-  font-weight: 500;
   color: #8b735e;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .card-resultsHistory {
+  background-image: linear-gradient(-225deg, #dec4c8 0%, #ffe6fa 100%);
+  border-radius: 8px;
+  box-shadow: 0 12px 16px 0 rgba(0, 51, 78, 0.38);
   font-family: "Rajdhani", sans-serif;
   font-size: 15px;
-  border-radius: 8px;
-  background-image: linear-gradient(-225deg, #dec4c8 0%, #ffe6fa 100%);
   line-height: 1.2;
   text-align: left;
   width: 18rem;
-  box-shadow: 0 12px 16px 0 rgba(0, 51, 78, 0.38);
 }
 
 /*button*/
 
 .btn-forecast {
-  color: #00334e;
   border: double thick #f6f5f5;
+  color: #00334e;
+  font-size: 15px;
   font-weight: bold;
   margin-top: 6px;
   padding: 6px;
-  font-size: 15px;
 }
 
 .btn-forecast:hover {
-  color: #00334e;
   background-color: #f6f5f5;
   border: double thick #00334e;
+  color: #00334e;
 }
 
 .btn-forecast:focus {
   box-shadow: none;
+}
+
+.btn-forecast-hidden {
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /*flip card*/
@@ -172,6 +185,7 @@ input::placeholder {
 }
 
 .flip-card.flip .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -179,14 +193,14 @@ input::placeholder {
   display: grid;
   grid-template: 1fr / 1fr;
   grid-template-areas: "frontAndBack";
-  transition: all 0.7s ease;
   transform-style: preserve-3d;
+  transition: all 0.7s ease;
 }
 
 .flip-card-front,
 .flip-card-back {
-  grid-area: frontAndBack;
   backface-visibility: hidden;
+  grid-area: frontAndBack;
   transform-style: preserve-3d;
 }
 
@@ -199,27 +213,27 @@ input::placeholder {
 }
 
 .flip-card-back .col-3 {
-  padding: 0px;
   margin: auto 0;
+  padding: 0px;
 }
 
 /* lay-out flip card*/
 
 .card-forecastdays {
-  border: solid 2px #dec4c8;
   background-color: #e5dae3;
-  color: #00334e;
-  font-family: "Rajdhani", sans-serif;
-  line-height: 0.6;
-  height: 100%;
+  border: solid 2px #dec4c8;
   border-radius: 8px;
   box-shadow: 0 12px 16px 0 rgba(0, 51, 78, 0.38);
+  color: #00334e;
+  font-family: "Rajdhani", sans-serif;
+  height: 100%;
+  line-height: 0.6;
 }
 
 .dayTemperature {
-  font-weight: 600;
   color: #8b735e;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .forecastCard {
@@ -229,32 +243,32 @@ input::placeholder {
 }
 
 .feelsLikeCold {
-  font-weight: 600;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .iconCardBack {
-  width: 38px;
   height: 38px;
+  width: 38px;
 }
 
 .fa-window-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 25px;
   color: #00334e;
+  font-size: 25px;
   opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 footer {
+  background-color: #00334e;
+  border-radius: 8px;
+  color: #f6f5f5;
   font-family: "Julius Sans One", sans-serif;
   font-size: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #00334e;
   opacity: 0.8;
-  color: #f6f5f5;
+  padding: 10px;
   text-align: center;
   width: 100%;
 }
