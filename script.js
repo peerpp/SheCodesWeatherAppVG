@@ -235,7 +235,7 @@ function showTemperature(response) {
   );
   temperatureElement.innerHTML = `${temperature}°C &mdash;`;
   descriptionElementCard1.innerHTML = description;
-  humidityElementCard1.innerHTML = `Humidity ${humidity}%`;
+  humidityElementCard1.innerHTML = `Humidity: ${humidity}%`;
   searchIconCard1.innerHTML = `<img class="iconCardFront" src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png" alt="${response.data.weather[0].description}"/>`;
   windElementCard1.innerHTML = `Wind: ${wind} km/h`;
   timeCards1.forEach(

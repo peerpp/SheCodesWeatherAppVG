@@ -4,7 +4,7 @@ body {
   width: 600px;
 }
 
-/* Header*/
+/*Header*/
 
 header {
   background-image: url("../image/singapore.jpg");
@@ -185,7 +185,6 @@ input::placeholder {
 }
 
 .flip-card.flip .flip-card-inner {
-  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -217,7 +216,7 @@ input::placeholder {
   padding: 0px;
 }
 
-/* lay-out flip card*/
+/*lay-out flip card*/
 
 .card-forecastdays {
   background-color: #e5dae3;
